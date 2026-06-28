@@ -1,0 +1,685 @@
+/* ======================================================
+   KAWAII Y2K BIRTHDAY WEBSITE
+   style.css
+====================================================== */
+
+/* ===================================================
+   CUSTOM FONT
+=================================================== */
+
+@font-face {
+    font-family: "Youre Gone";
+    src: url("../assets/fonts/Youre%20Gone.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Youre Gone Italic";
+    src: url("../assets/fonts/Youre%20Gone%20It.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
+}
+/* ========= VARIABLES ========= */
+
+:root{
+
+    --pink:#ff7eb9;
+    --light-pink:#ffd9ec;
+    --purple:#d7b8ff;
+    --blue:#dff4ff;
+    --white:#ffffff;
+
+    --text:#5d5672;
+    --shadow:0 15px 40px rgba(255,126,185,.25);
+
+    --radius:30px;
+
+}
+
+/* ========= RESET ========= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:'Fredoka',sans-serif;
+
+    color:var(--text);
+
+    min-height:100svh;
+
+    padding:16px 12px 24px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at top,#fff5fb,#ffe2f2 30%,#efdfff 65%,#dff4ff);
+
+    overflow:hidden;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+
+}
+
+/* ========= BACKGROUND ========= */
+
+.background{
+
+    position:fixed;
+    inset:0;
+
+    overflow:hidden;
+
+    z-index:-1;
+
+}
+
+/* ========= FLOATING DECORATION ========= */
+
+.floating{
+
+    position:absolute;
+
+    animation:float linear infinite;
+
+    opacity:.75;
+
+    pointer-events:none;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(110vh) rotate(0deg);
+
+}
+
+100%{
+
+transform:translateY(-120vh) rotate(360deg);
+
+}
+
+}
+
+/* ========= MAIN CARD ========= */
+
+.container{
+
+    width:min(92vw, 440px);
+
+    margin:0 auto;
+
+}
+
+.card{
+
+    position:relative;
+
+    background:rgba(255,255,255,.65);
+
+    backdrop-filter:blur(18px);
+
+    border:3px solid white;
+
+    border-radius:clamp(22px, 4vw, 35px);
+
+    padding:clamp(22px, 4.5vw, 36px);
+
+    box-shadow:
+
+    var(--shadow),
+    inset 0 0 30px rgba(255,255,255,.6);
+
+    overflow:hidden;
+
+    max-height:calc(100svh - 32px);
+
+    overflow-y:auto;
+
+    overflow-x:hidden;
+
+}
+
+/* glitter */
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+radial-gradient(white 1px,transparent 1px);
+
+background-size:18px 18px;
+
+opacity:.25;
+
+pointer-events:none;
+
+}
+
+/* ========= PAGE ========= */
+
+.page{
+
+display:none;
+
+text-align:center;
+
+animation:fade .6s ease;
+
+}
+
+.page.active{
+
+display:block;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* ========= TYPOGRAPHY ========= */
+body{
+    font-family: "Youre Gone", sans-serif;
+}
+
+h1{
+    font-family: "Youre Gone", cursive;
+    font-size: clamp(1.8rem, 4.6vw, 3rem);
+    line-height:1.15;
+    letter-spacing: 2px;
+    color:#ff4f96;
+    word-break:break-word;
+}
+
+h2{
+    font-family: "Youre Gone", cursive;
+}
+
+.subtitle{
+    font-family: "Youre Gone Italic", cursive;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    color:#b37dff;
+    line-height:1.4;
+}
+
+p, .message{
+    font-size: clamp(.95rem, 2.4vw, 1.05rem);
+    line-height:1.6;
+}
+
+button{
+    font-family:"Youre Gone", sans-serif;
+}
+
+input{
+    font-family:"Youre Gone", sans-serif;
+}
+
+.footer{
+    font-family:"Youre Gone Italic", cursive;
+}
+
+/* ========= EMOJI ICON ========= */
+
+.icon{
+
+font-size:clamp(3rem, 10vw, 5rem);
+
+margin-bottom:12px;
+
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+/* ========= BUTTON ========= */
+
+button{
+
+width:100%;
+
+padding:clamp(12px, 2.8vw, 16px);
+
+margin-top:20px;
+
+border:none;
+
+border-radius:999px;
+
+background:
+
+linear-gradient(
+90deg,
+#ff8ac8,
+#d9a7ff
+);
+
+font-size:clamp(.95rem, 2.4vw, 1.06rem);
+
+font-weight:600;
+
+font-family:inherit;
+
+color:white;
+
+cursor:pointer;
+
+transition:.25s;
+
+box-shadow:
+
+0 10px 25px rgba(255,105,180,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+}
+
+button:active{
+
+transform:scale(.96);
+
+}
+
+/* ========= INPUT ========= */
+
+input{
+
+width:100%;
+
+padding:15px;
+
+margin:10px 0;
+
+border-radius:18px;
+
+border:2px solid #ffd0eb;
+
+background:white;
+
+font-size:16px;
+
+font-family:inherit;
+
+outline:none;
+
+transition:.2s;
+
+}
+
+input:focus{
+
+border-color:#ff8ac8;
+
+box-shadow:
+
+0 0 12px rgba(255,105,180,.25);
+
+}
+
+/* ========= MESSAGE BOX ========= */
+
+.message{
+
+background:white;
+
+padding:clamp(14px, 3vw, 18px);
+
+border-radius:20px;
+
+margin:20px 0;
+
+border:2px dashed #ffd0eb;
+
+}
+
+/* ========= POLAROID ========= */
+
+.polaroid{
+
+background:white;
+
+padding:10px 10px 30px;
+
+border-radius:12px;
+
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+transform:rotate(-2deg);
+
+margin:20px auto;
+
+max-width:250px;
+
+}
+
+.polaroid img{
+
+width:100%;
+
+border-radius:8px;
+
+display:block;
+
+}
+
+.polaroid span{
+
+display:block;
+
+margin-top:12px;
+
+font-family:"Patrick Hand";
+
+font-size:1.2rem;
+
+}
+
+/* ========= GALLERY ========= */
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+gap:12px;
+
+margin-top:20px;
+
+}
+
+.gallery img{
+
+width:100%;
+
+border-radius:16px;
+
+aspect-ratio:1;
+
+object-fit:cover;
+
+transition:.3s;
+
+}
+
+.gallery img:hover{
+
+transform:scale(1.05);
+
+}
+
+/* ========= STICKERS ========= */
+
+.sticker{
+
+position:absolute;
+
+width:60px;
+
+user-select:none;
+
+pointer-events:none;
+
+}
+
+.ribbon{
+
+top:15px;
+left:15px;
+
+}
+
+.star{
+
+bottom:20px;
+right:15px;
+
+}
+
+.heart{
+
+top:50%;
+right:-10px;
+
+}
+
+/* ========= FOOTER ========= */
+
+.footer{
+
+margin-top:30px;
+
+text-align:center;
+
+font-size:.8rem;
+
+color:#a38cc5;
+
+}
+
+/* ========= CONFETTI ========= */
+
+.confetti{
+
+position:fixed;
+
+top:-40px;
+
+font-size:26px;
+
+pointer-events:none;
+
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:
+
+translateY(110vh)
+
+rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+/* ========= SCROLLBAR ========= */
+
+::-webkit-scrollbar{
+
+display:none;
+
+}
+
+/* ========= BUBBLE ========= */
+/* ===============================
+   Floating Sticker Bubbles
+================================= */
+
+.bubble{
+    position: fixed;
+    bottom: -100px;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+    animation: bubbleFloat linear forwards;
+}
+
+@keyframes bubbleFloat{
+
+    0%{
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
+    50%{
+        transform:
+            translateY(-50vh)
+            translateX(25px)
+            rotate(180deg);
+    }
+
+    100%{
+        transform:
+            translateY(-120vh)
+            translateX(-40px)
+            rotate(360deg);
+
+        opacity:0;
+    }
+
+}
+
+/* ========= MOBILE ========= */
+
+@media(max-width:480px){
+
+body{
+
+padding:12px 10px 18px;
+
+align-items:flex-start;
+
+}
+
+.container{
+
+width:min(96vw, 100%);
+
+}
+
+.card{
+
+padding:22px 16px;
+
+border-radius:24px;
+
+max-height:calc(100svh - 24px);
+
+}
+
+.icon{
+
+font-size:3rem;
+
+}
+
+button{
+
+padding:14px;
+
+}
+
+}
+
+/* ========= TABLET ========= */
+
+@media(min-width:768px){
+
+.container{
+
+width:min(90vw, 500px);
+
+}
+
+.card{
+
+padding:clamp(28px, 3vw, 45px);
+
+}
+
+}
+/* ========= background ========= */
+body{
+
+    position:relative;
+
+    min-height:100vh;
+
+    background-image:url("../assets/images/background.jpg");
+    background-size:cover;
+    background-position:center;
+
+}
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+        rgba(255,255,255,.35);
+
+    backdrop-filter:blur(3px);
+
+    pointer-events:none;
+
+}
